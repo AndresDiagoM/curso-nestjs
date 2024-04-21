@@ -9,4 +9,14 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello()
   }
+
+  @Get('/home') // the controller returns the route /home
+  getHome(): string {
+    return 'Welcome to my home'
+  }
+
+  @Get('about') // not need to add the / because it is already in the route
+  getAbout(): string {
+    return 'This is an about page'
+  }
 }
