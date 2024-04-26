@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common'
+import { Controller, Get, Param } from '@nestjs/common'
 import { AppService } from './app.service'
 
 @Controller()
@@ -18,5 +18,11 @@ export class AppController {
   @Get('about') // not need to add the / because it is already in the route
   getAbout(): string {
     return 'This is an about page'
+  }
+
+  // get with params
+  @Get('products/:id')
+  getProduct(@Param('id') id: string): string {
+    return `Product with id ${id}`
   }
 }
