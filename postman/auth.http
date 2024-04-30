@@ -1,7 +1,5 @@
 @hostname = http://localhost:3000/api/v1
 @accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRlMDIyODk5Zjg4MzIzYmQ1MjZlZDUiLCJmaXJzdE5hbWUiOiJBbmRyZXMiLCJsYXN0TmFtZSI6IkZlbGlwZURNIiwiZW1haWwiOiJmZWxpcGUuZGlhZ29AdGhlYml0YmFuZy5jb21wYW55Iiwicm9sZSI6IkFkbWluaXN0cmFkb3IiLCJpYXQiOjE3MTI3NTY5MzQsImV4cCI6MTcxMjc2MDUzNH0.LYy17hUdKTHZpa8rGazdrnU_bxte16a9znL-AdbtvUY
-@refreshToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRlMDIyODk5Zjg4MzIzYmQ1MjZlZDUiLCJmaXJzdE5hbWUiOiJBbmRyZXMiLCJsYXN0TmFtZSI6IkZlbGlwZURNIiwiZW1haWwiOiJmZWxpcGUuZGlhZ29AdGhlYml0YmFuZy5jb21wYW55Iiwicm9sZSI6IkFkbWluaXN0cmFkb3IiLCJpYXQiOjE3MTA4NjExODAsImV4cCI6MTcxMTQ2NTk4MH0.tgrf12TKxOZVWQk6z7vj0zzJyuABIjyc7uBdEo1TLBE
-
 ### GET app /
 GET http://localhost:3000/
 
@@ -17,46 +15,3 @@ Content-Type: application/json
   "email": "felipe@mail.com",
   "password": "@nestUSER2023"
 }
-
-### POST refresh token
-POST {{hostname}}/auth/refresh-token
-Content-Type: application/json
-
-{
-  "refreshToken": "{{refreshToken}}"
-}
-
-### POST forgot password, user not loged in
-POST {{hostname}}/auth/forgot-password
-Content-Type: application/json
-
-{
-  "email": "felipe.diago@mail.com"
-}
-
-### POST change password, user not loged in
-POST {{hostname}}/auth/recovery
-Content-Type: application/json
-
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRlMDIyODk5Zjg4MzIzYmQ1MjZlZDUiLCJlbWFpbCI6ImZlbGlwZS5kaWFnb0B0aGViaXRiYW5nLmNvbXBhbnkiLCJpYXQiOjE3MTA4NzgzMTMsImV4cCI6MTcxMDg3OTIxM30.hsq2o5C7iPWXKC4ZKBhGc_VDPzIBB2NZWsWRcOyVFcM",
-  "newPassword": "@nestUSER2023"
-}
-
-### GET change password
-GET {{hostname}}/auth/change-password
-Authorization:Bearer {{accessToken}}
-
-### POST change password
-POST {{hostname}}/auth/change-password
-Authorization:Bearer {{accessToken}}
-Content-Type: application/json
-
-{
-  "code": "911951",
-  "newPassword": "@nestUSER2023"
-}
-
-### DELETE logout
-DELETE {{hostname}}/auth/logout
-Authorization:Bearer {{refreshToken}}
