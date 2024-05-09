@@ -32,6 +32,19 @@ Content-Type: application/json
   "description": "iPhone 12"
 }
 
+### PUT products
+PUT http://localhost:3000/products/4
+Content-Type: application/json
+
+{
+  "id": 4,
+  "name": "iPhone 12 Pro",
+  "description": "iPhone 12 Pro"
+}
+
+### DELETE products
+DELETE http://localhost:3000/products/4
+
 
 #######################################
 ### GET categories with id

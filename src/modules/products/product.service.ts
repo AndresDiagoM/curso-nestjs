@@ -42,4 +42,16 @@ export class ProductService {
     this.products.push(product)
     return product
   }
+
+  updateProduct(id: number, product: any): any {
+    const index = this.products.findIndex((product) => product.id === id)
+    this.products[index] = product
+    return product
+  }
+
+  deleteProduct(id: number): any {
+    const index = this.products.findIndex((product) => product.id === id)
+    this.products.splice(index, 1)
+    return this.products
+  }
 }
