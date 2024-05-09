@@ -17,10 +17,20 @@ GET http://localhost:3000/about
 GET http://localhost:3000/products/1
 
 ### GET products with query params
-GET http://localhost:3000/products?limit=2&offset=1&brand=Apple
+GET http://localhost:3000/products?limit=5&offset=0&filter=
 
 ### GET products with filter
 GET http://localhost:3000/products/filter
+
+### POST products
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+  "id": 4,
+  "name": "iPhone 12",
+  "description": "iPhone 12"
+}
 
 
 #######################################

@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Query } from '@nestjs/common'
+import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common'
 import { ProductService } from './product.service'
 
 @Controller('products')
@@ -13,7 +13,7 @@ export class ProductController {
   // get with params
   @Get(':id')
   getProduct(@Param('id') id: string): string {
-    return `Product with id ${id}`
+    return this.productService.getProduct(Number(id))
   }
 
   // using @query
@@ -21,8 +21,15 @@ export class ProductController {
   getProducts(
     @Query('limit') limit = 100,
     @Query('offset') offset = 0,
-    @Query('brand') brand: string
+    @Query('filter') filter: string
   ) {
-    return `products limit=> ${limit} offset=> ${offset} brand=> ${brand}`
+    return this.productService.getProducts(limit, offset, filter)
+  }
+
+  // POST create a new product with body
+  @Post()
+  createProduct(@Body() body: any) {
+    console.log(body)
+    return this.productService.createProduct(body)
   }
 }
