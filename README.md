@@ -58,6 +58,30 @@ $ pnpm run test:e2e
 $ pnpm run test:cov
 ```
 
+## NestJS CLI
+
+With the NestJS CLI you can generate new components, modules, services, etc. with a simple command. To install the CLI, run the following command:
+
+```bash
+$ pnpm install -g @nestjs/cli
+```
+
+After installing the CLI, you can use it to generate new components. For example, to generate a new controller, run the following command:
+
+```bash
+$ nest g controller cats
+```
+
+This will generate a new controller in the `src/cats` directory.
+
+We can create a new module, i.e a module named "categories" along with its controller and service inside the "modules" folder using NestJS CLI, you can use the following commands:
+
+```bash
+$ nest g module modules/categories
+$ nest g controller modules/categories
+$ nest g service modules/categories
+```
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
