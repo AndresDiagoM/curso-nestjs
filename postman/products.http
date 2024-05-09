@@ -1,0 +1,41 @@
+@hostname = http://localhost:3000
+
+### GET products with id
+GET {{hostname}}/products/1
+
+### GET products with query params
+GET {{hostname}}/products?limit=5&offset=0&filter=
+
+### GET products with filter
+GET {{hostname}}/products/filter
+
+### POST products
+POST {{hostname}}/products
+Content-Type: application/json
+
+{
+  "id": 4,
+  "name": "iPhone 12",
+  "description": "iPhone 12"
+}
+
+### PUT products
+PUT {{hostname}}/products/4
+Content-Type: application/json
+
+{
+  "id": 4,
+  "name": "iPhone 12 Pro",
+  "description": "iPhone 12 Pro"
+}
+
+### DELETE products
+DELETE {{hostname}}/products/4
+
+
+#######################################
+### GET categories with id
+GET {{hostname}}/categories/1
+
+### GET categories with query params
+GET {{hostname}}/categories?limit=2&offset=1

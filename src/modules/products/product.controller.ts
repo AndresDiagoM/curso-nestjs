@@ -1,4 +1,15 @@
-import { Body, Controller, Get, Param, Post, Put, Query, Delete } from '@nestjs/common'
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  Put,
+  Query,
+  Delete,
+  HttpCode,
+  HttpStatus
+} from '@nestjs/common'
 import { ProductService } from './product.service'
 
 @Controller('products')
@@ -12,18 +23,21 @@ export class ProductController {
 
   // get with params
   @Get(':id')
+  @HttpCode(HttpStatus.ACCEPTED)
   getProduct(@Param('id') id: string): string {
     return this.productService.getProduct(Number(id))
   }
 
   // using @query
   @Get('')
+  @HttpCode(HttpStatus.ACCEPTED)
   getProducts(
     @Query('limit') limit = 100,
     @Query('offset') offset = 0,
     @Query('filter') filter: string
   ) {
-    return this.productService.getProducts(limit, offset, filter)
+    const products = this.productService.getProducts(limit, offset, filter)
+    return { data: products, total: products.length }
   }
 
   // POST create a new product with body
