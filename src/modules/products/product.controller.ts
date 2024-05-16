@@ -14,6 +14,7 @@ import {
 import { ProductService } from './product.service'
 import { Product } from 'src/models/product.model'
 import { ParseIntPipe } from 'src/common/parse-int/parse-int.pipe'
+import { createProductDto, updateProductDto } from 'src/dtos/products.dto'
 
 @Controller('products')
 export class ProductController {
@@ -45,14 +46,14 @@ export class ProductController {
 
   // POST create a new product with body
   @Post()
-  createProduct(@Body() body: any) {
+  createProduct(@Body() body: createProductDto) {
     // console.log(body)
     return this.productService.createProduct(body)
   }
 
   // PUT update a product
   @Put(':id')
-  updateProduct(@Param('id') id: string, @Body() body: any) {
+  updateProduct(@Param('id') id: string, @Body() body: updateProductDto) {
     return this.productService.updateProduct(Number(id), body)
   }
 
