@@ -1,7 +1,7 @@
 @hostname = http://localhost:3000
 
 ### GET products with id
-GET {{hostname}}/products/3
+GET {{hostname}}/products/1
 
 ### GET products with query params
 GET {{hostname}}/products?limit=5&offset=0&filter=
