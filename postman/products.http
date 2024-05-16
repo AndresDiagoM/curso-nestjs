@@ -16,17 +16,21 @@ Content-Type: application/json
 {
   "id": 4,
   "name": "iPhone 12",
-  "description": "iPhone 12"
+  "description": "iPhone 12",
+  "price": 799.99,
+  "stock": 10,
+  "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-blue-select-2020?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1604343704000"
 }
 
-### PUT products
+### PUT update products
 PUT {{hostname}}/products/4
 Content-Type: application/json
 
 {
   "id": 4,
   "name": "iPhone 12 Pro",
-  "description": "iPhone 12 Pro"
+  "description": "iPhone 12 Pro MAX",
+  "price": 999.99
 }
 
 ### DELETE products

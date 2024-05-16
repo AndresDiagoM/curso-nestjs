@@ -52,12 +52,12 @@ export class ProductService {
 
   updateProduct(id: number, product: updateProductDto): updateProductDto {
     const productOld = this.products.find((product) => product.id === id)
-    if (!product) throw new NotFoundException(`Product with id ${id} not found`)
+    if (!productOld) throw new NotFoundException(`Product with id ${id} not found`)
 
     const index = this.products.findIndex((product) => product.id === id)
     this.products[index] = { ...productOld, ...product }
 
-    return product
+    return this.products[index]
   }
 
   deleteProduct(id: number): Product[] {
