@@ -8,11 +8,12 @@ import {
   Query,
   Delete,
   HttpCode,
-  HttpStatus,
-  ParseIntPipe
+  HttpStatus
+  //ParseIntPipe
 } from '@nestjs/common'
 import { ProductService } from './product.service'
 import { Product } from 'src/models/product.model'
+import { ParseIntPipe } from 'src/common/parse-int/parse-int.pipe'
 
 @Controller('products')
 export class ProductController {
