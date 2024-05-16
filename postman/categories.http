@@ -1,0 +1,31 @@
+@hostname = http://localhost:3000
+
+### GET categories with id
+GET {{hostname}}/categories/3
+
+### GET categories with query params
+GET {{hostname}}/categories?limit=5&offset=0&filter=
+
+### GET categories with filter
+GET {{hostname}}/categories/filter
+
+### POST categories
+POST {{hostname}}/categories
+Content-Type: application/json
+
+{
+  "name": "Electrodomesticos",
+  "description": "Electrodomesticos de ultima generacion"
+}
+
+### PUT update categories
+PUT {{hostname}}/categories/4
+Content-Type: application/json
+
+{
+  "name": "Electrodomesticos",
+  "description": "Electrodomesticos 2024 de ultima generacion"
+}
+
+### DELETE categories
+DELETE {{hostname}}/categories/4
