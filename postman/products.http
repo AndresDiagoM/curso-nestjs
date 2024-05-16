@@ -14,7 +14,6 @@ POST {{hostname}}/products
 Content-Type: application/json
 
 {
-  "id": 4,
   "name": "iPhone 12",
   "description": "iPhone 12",
   "price": 799.99,
