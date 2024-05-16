@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common'
+import { Product } from '../../models/product.model'
 
 @Injectable()
 export class ProductService {
   // properties
-  private products = [
+  private products: Product[] = [
     {
       id: 1,
       name: 'Product 1',
@@ -23,7 +24,7 @@ export class ProductService {
 
   // methods
 
-  getProducts(limit: number, offset: number, filter: string): any {
+  getProducts(limit: number, offset: number, filter: string): Product[] {
     let products = this.products
 
     if (filter)
@@ -34,22 +35,22 @@ export class ProductService {
     return products.slice(offset, offset + limit)
   }
 
-  getProduct(id: number): any {
+  getProduct(id: number): Product {
     return this.products.find((product) => product.id === id)
   }
 
-  createProduct(product: any): any {
+  createProduct(product: Product): Product {
     this.products.push(product)
     return product
   }
 
-  updateProduct(id: number, product: any): any {
+  updateProduct(id: number, product: Product): Product {
     const index = this.products.findIndex((product) => product.id === id)
     this.products[index] = product
     return product
   }
 
-  deleteProduct(id: number): any {
+  deleteProduct(id: number): Product[] {
     const index = this.products.findIndex((product) => product.id === id)
     this.products.splice(index, 1)
     return this.products

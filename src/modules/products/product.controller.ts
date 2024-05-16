@@ -11,6 +11,7 @@ import {
   HttpStatus
 } from '@nestjs/common'
 import { ProductService } from './product.service'
+import { Product } from 'src/models/product.model'
 
 @Controller('products')
 export class ProductController {
@@ -24,7 +25,7 @@ export class ProductController {
   // get with params
   @Get(':id')
   @HttpCode(HttpStatus.ACCEPTED)
-  getProduct(@Param('id') id: string): string {
+  getProduct(@Param('id') id: string): Product {
     return this.productService.getProduct(Number(id))
   }
 

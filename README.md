@@ -82,6 +82,13 @@ $ nest g controller modules/categories
 $ nest g service modules/categories
 ```
 
+We can use --flat flag to generate the files in the same directory, i.e a controller named "categories" along with its service inside the "modules" folder using NestJS CLI, you can use the following commands:
+
+```bash
+$ nest g controller modules/categories --flat
+$ nest g service modules/categories --flat
+```
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
